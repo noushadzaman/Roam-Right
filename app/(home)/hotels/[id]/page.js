@@ -1,13 +1,19 @@
 import Gallery from "@/components/hotel/details/Gallery";
 import Overview from "@/components/hotel/details/Overview";
 import Summary from "@/components/hotel/details/Summary";
+import { getHotelById } from "@/database/queries";
 
-export default function HotelDetails() {
+export default async function HotelDetails({
+  params: { id },
+  searchParams: { checkin, checkout },
+}) {
+  const hotelInfo = await getHotelById(id, checkin, checkout);
+
   return (
     <>
-      <Summary />
-      <Gallery />
-      <Overview />
+      <Summary hotelInfo={hotelInfo} />
+      <Gallery gallery={hotelInfo?.gallery} />
+      <Overview overview={hotelInfo?.overview} />
     </>
   );
 }
