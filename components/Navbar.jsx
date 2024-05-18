@@ -9,12 +9,7 @@ const Navbar = async ({ sideMenu }) => {
   return (
     <nav>
       <Link href="/">
-        <Image
-          src="/stayswift.svg"
-          alt="Stay Swift Logo"
-          width={200}
-          height={200}
-        />
+        <p className="text-[25px] font-bold text-orange-500">Roam Right</p>
       </Link>
       {
         sideMenu && <ul>

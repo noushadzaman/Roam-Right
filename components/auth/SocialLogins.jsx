@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const SocialLogins = ({ mode }) => {
   const handleAuth = (event) => {
-    signIn("google", { callbackUrl: 'http://localhost:3000/bookings' });
+    signIn("google", { callbackUrl: 'https://roamright.vercel.app/bookings' });
   }
 
   return (

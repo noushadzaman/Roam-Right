@@ -7,7 +7,7 @@ const HotelSummaryInfo = ({ fromListPage, info, checkin, checkout }) => {
   if (checkin && checkout) {
     params = `?checkin=${checkin}&checkout=${checkout}`
   }
-
+  
   return (
     <>
       <div className={fromListPage ? "flex-1" : "flex-1 container"}>
@@ -29,7 +29,10 @@ const HotelSummaryInfo = ({ fromListPage, info, checkin, checkout }) => {
         {
           fromListPage ?
             (<Link href={`/hotels/${info?.id}${params}`} className="btn-primary ">Details</Link>)
-            : (<button disabled={info?.isBooked} className={`btn-primary`}>Book</button>)
+            : (<Link
+              href={info?.isBooked ? '#' : `/hotels/${info?.id}/payment${params}`}
+              className={info?.isBooked ? 'btn-disabled' : 'btn-primary'}
+            >Book</Link>)
         }
       </div>
     </>
